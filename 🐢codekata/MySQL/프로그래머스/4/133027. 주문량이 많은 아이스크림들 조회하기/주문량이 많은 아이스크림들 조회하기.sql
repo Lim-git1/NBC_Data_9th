@@ -1,0 +1,8 @@
+-- 코드를 입력하세요
+#SELECT SHIPMENT_ID, FLAVOR,	sum(f.TOTAL_ORDER), sum(j.TOTAL_ORDER), sum(f.TOTAL_ORDER) + sum(j.TOTAL_ORDER) as "합"
+SELECT FLAVOR
+FROM first_half f left join july j
+USING (FLAVOR)
+GROUP BY FLAVOR
+ORDER BY sum(f.TOTAL_ORDER) + sum(j.TOTAL_ORDER) DESC
+LIMIT 3
