@@ -1,7 +1,6 @@
--- 코드를 입력하세요
-SELECT a.name, a.datetime
-from animal_ins a left join animal_outs b
-on a.animal_id = b.animal_id
-where b.animal_id is null
-order by 2
+Select i.name, i.datetime
+FROM animal_ins i left join animal_outs o
+USING(animal_id)
+where o.animal_id is null
+order by i.datetime asc
 limit 3
